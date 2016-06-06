@@ -1,27 +1,83 @@
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.library' // 表示此Model 是一个library库
+apply plugin: 'com.android.application' // 表示此Model 是一个application程序
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    //指定的编译SDK以及编辑工具版本
+    compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
+    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
+    //默认的全局配置，也就是说这里边配置的下面的 buildTypes 中也将自动继承了
     defaultConfig {
         applicationId "com.andy.collect"
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion ANDROID_BUILD_TARGET_SDK_VERSION as int
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
-}
+    ndk {
+
+    }
+
+    //Java 的版本配置
+    compileOptions {
+    }
+
+    sourceSets {
+        main {
+            /*manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']*/ //引用 *.so 文件的时候使用
+        }
+
+        lintOptions {
+            abortOnError false //lint检查开关
+        }
+
+        //产品发布风格配置
+        productFlavors {
+            flavor1 {
+               /* packageName='com.example.qiujuer.application1'
+                manifest.srcFile 'exampleapk/AndroidManifest1.xml'*/
+            }
+
+            flavor2 {
+                /*packageName='com.example.qiujuer.application2'
+                manifest.srcFile 'exampleapk/AndroidManifest2.xml'*/
+            }
+        }
+
+        //apk签名：这个可以不用自己创建，你可以点击 build/generate signed apk，
+        //在其中选择你的文件或者创建签名文件，设置密码等等，然后选择记住密码，然后就会看见有这个配置了
+        signingConfigs {
+            release {
+                /*storeFile file(×.keystore)
+                storePassword ×××
+                keyAlias ××××
+                keyPassword ×××*/
+            }
+        }
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar']) //本地依赖,编译时依赖 libs 文件夹下的所有 jar 文件
+        compile project(':andylib') //依赖一个本项目中 名称为 andylib 的 model 库
+        testCompile 'junit:junit:4.12'
+        compile 'com.android.support:appcompat-v7:23.4.0' //依赖一个远程的库
+        compile 'com.android.support:design:23.4.0'
+    }

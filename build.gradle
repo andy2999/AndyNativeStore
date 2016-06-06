@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+//即：依赖 jcenter() 服务中的 gradle 库，其包名是：“com.android.tools.build” ，版本是：2.1.0
 buildscript {
     repositories {
         jcenter()
