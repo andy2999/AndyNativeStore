@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndyLibrary</string>
+
+    <string name="wait_dialog_title">Please wait for a while…</string>
+
+    <string name="request_succeed">Request is succeed</string>
+    <string name="request_failed">Request is failed</string>
+
+    <string name="request_method_not_allow">The request method was not server allows.</string>
+
+    <string name="know">I know</string>
 </resources>

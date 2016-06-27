@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+    <item name="tb" type="id"/>
+    <item name="tb_title" type="id"/>
+    <item name="tb_more" type="id"/>
+</resources>

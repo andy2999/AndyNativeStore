@@ -5,4 +5,17 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="sub_menu_1" translatable="false">sub_menu_1</string>
+    <string name="sub_menu_2" translatable="false">sub_menu_2</string>
+    <string name="sub_menu_3" translatable="false">sub_menu_3</string>
+    <string name="sub_menu_4" translatable="false">sub_menu_4</string>
+
+    <string-array name="array_sub_menu" translatable="false">
+        <item>@string/sub_menu_1</item>
+        <item>@string/sub_menu_2</item>
+        <item>@string/sub_menu_3</item>
+        <item>@string/sub_menu_4</item>
+    </string-array>
+
 </resources>

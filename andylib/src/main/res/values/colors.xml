@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="WINDOW_BACKGROUND">#F8F8F8</color>
+    <color name="COLOR_BORDER_LINE">#d7d7d7</color>
+    <color name="TOAST_COLOR">#88000000</color>
+    <color name="alertdialog_line">#c6c6c6</color>
+    <!--normal-->
+    <color name="tb_title_black">#222222</color>
+</resources>

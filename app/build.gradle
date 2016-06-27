@@ -3,14 +3,13 @@ apply plugin: 'com.android.application' // 表示此Model 是一个application�
 
 android {
     //指定的编译SDK以及编辑工具版本
-    compileSdkVersion ANDROID_COMPILE_SDK_VERSION as int
-    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     //默认的全局配置，也就是说这里边配置的下面的 buildTypes 中也将自动继承了
     defaultConfig {
         applicationId "com.andy.collect"
-        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
-        targetSdkVersion ANDROID_BUILD_TARGET_SDK_VERSION as int
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -23,10 +22,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-
-    ndk {
-
     }
 
     //Java 的版本配置
@@ -52,8 +47,8 @@ android {
         //产品发布风格配置
         productFlavors {
             flavor1 {
-               /* packageName='com.example.qiujuer.application1'
-                manifest.srcFile 'exampleapk/AndroidManifest1.xml'*/
+                /* packageName='com.example.qiujuer.application1'
+                 manifest.srcFile 'exampleapk/AndroidManifest1.xml'*/
             }
 
             flavor2 {
@@ -73,11 +68,17 @@ android {
             }
         }
     }
+}
 
-    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar']) //本地依赖,编译时依赖 libs 文件夹下的所有 jar 文件
-        compile project(':andylib') //依赖一个本项目中 名称为 andylib 的 model 库
-        testCompile 'junit:junit:4.12'
-        compile 'com.android.support:appcompat-v7:23.4.0' //依赖一个远程的库
-        compile 'com.android.support:design:23.4.0'
-    }
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar']) //本地依赖,编译时依赖 libs 文件夹下的所有 jar 文件
+    compile project(':andylib') //依赖一个本项目中 名称为 andylib 的 model 库
+    compile 'com.alibaba:fastjson:1.2.11'
+//    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}" //依赖一个远程的库
+//    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
+
+    testCompile "junit:junit:${rootProject.ext.junitVersion}"
+    androidTestCompile "com.android.support:support-annotations:${rootProject.ext.supportLibVersion}"
+    androidTestCompile "com.android.support.test:runner:${rootProject.ext.testRunnerVersion}"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
+}

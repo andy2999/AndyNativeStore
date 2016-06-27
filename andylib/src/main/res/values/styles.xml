@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolbarStyle">
+        <item name="android:id">@id/tb</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">@drawable/shape_border_bottom_gray</item>
+        <item name="layout_scrollFlags">scroll|enterAlways</item>
+        <item name="navigationIcon">@mipmap/btn_return</item>
+    </style>
+    <style name="ToolbarRelat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="MatchWrap.ToolbarTitle">
+        <item name="android:id">@id/tb_title</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">?actionBarSize</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/tb_title_black</item>
+        <item name="android:textSize">@dimen/tb_title</item>
+    </style>
+    <style name="WrapWrap.ToolbarMore">
+        <item name="android:id">@id/tb_more</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/tb_margin_right</item>
+        <item name="android:background">@drawable/background_item_selector_gray</item>
+    </style>
+</resources>
