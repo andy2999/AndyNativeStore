@@ -17,7 +17,7 @@ public interface HttpInterface {
 
     void showNotifyDialog(@NonNull String msg);
 
-    void showMsgDialog(int title, int msg);
+    void showMsgDialog(int title, CharSequence msg);
 
     void showWebDialog(Response<?> response);
 

@@ -1,5 +1,5 @@
-//apply plugin: 'com.android.library' // 表示此Model 是一个library库
 apply plugin: 'com.android.application' // 表示此Model 是一个application程序
+//apply plugin: 'com.android.library' // 表示此Model 是一个library库
 
 android {
     //指定的编译SDK以及编辑工具版本

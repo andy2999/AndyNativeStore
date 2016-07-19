@@ -6,6 +6,7 @@
     <string name="request_succeed">Request is succeed</string>
     <string name="request_failed">Request is failed</string>
 
+    <string name="request_method_head">Request method for HEAD, no response content.</string>
     <string name="request_method_not_allow">The request method was not server allows.</string>
 
     <string name="know">I know</string>

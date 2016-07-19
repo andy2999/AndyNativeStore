@@ -103,7 +103,7 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
         int responseCode = response.getHeaders().getResponseCode();
         if (responseCode > 400 && mHttpInterface != null) {
             if (responseCode == 405) {// 405表示服务器不支持这种请求方法，比如GET、POST、TRACE中的TRACE就很少有服务器支持。
-                mHttpInterface.showMsgDialog(R.string.request_succeed, R.string.request_method_not_allow);
+                mHttpInterface.showMsgDialog(R.string.request_succeed, mHttpInterface.getActivity().getString(R.string.request_method_not_allow) );
             } else {// 但是其它400+的响应码服务器一般会有流输出。
                 mHttpInterface.showWebDialog(response);
             }
@@ -135,8 +135,9 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
             Snackbar.show(mHttpInterface.getActivity(), "未知错误。");
         }
         Logger.e("错误：" + exception.getMessage());
-        if (callback != null)
+        if (callback != null){
             callback.onFailed(what, url, tag, exception, responseCode, networkMillis);
+            mHttpInterface.showMsgDialog(R.string.request_failed, exception.getMessage());}
     }
 
 }

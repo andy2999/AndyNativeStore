@@ -26,7 +26,7 @@ import com.yolanda.nohttp.rest.Response;
 import com.yolanda.nohttp.rest.StringRequest;
 import com.yolanda.nohttp.tools.HeaderParser;
 
-public abstract class BaseAct extends AppCompatActivity implements HttpInterface {
+public abstract class BaseAct extends AppCompatActivity implements HttpInterface, View.OnClickListener {
     protected View title, more;
     protected Toolbar mToolbar;
     public static final String MSG_USER_EXIT_ACTION = "MSG_USER_EXIT_ACTION";//退出程序
@@ -165,12 +165,17 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
 
     }
 
-    @Override
+
     public void showMsgDialog(int title, int message) {
-        showMessageDialog(getText(title), getText(message));
+        showMsgDialog(getText(title), getText(message));
     }
 
-    public void showMessageDialog(CharSequence title, CharSequence message) {
+    @Override
+    public void showMsgDialog(int title, CharSequence message) {
+        showMsgDialog(getText(title), message);
+    }
+
+    public void showMsgDialog(CharSequence title, CharSequence message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setMessage(message);
@@ -194,8 +199,12 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
 
     @Override
     public Activity getActivity() {
-        return null;
+        return this;
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

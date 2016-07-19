@@ -65,7 +65,7 @@ public class CallServer {
     /**
      * 添加一个请求到请求队列.
      *
-     * @param context   context用来实例化dialog.
+     * @param httpInterface   httpInterface 用来实例化其实现类的dialog.
      * @param what      用来标志请求, 当多个请求使用同一个{@link HttpListener}时, 在回调方法中会返回这个what.
      * @param request   请求对象.
      * @param callback  结果回调对象.
