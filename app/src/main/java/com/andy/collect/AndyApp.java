@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import com.andy.collect.andylibrary.common.CommonUtils;
 import com.andy.collect.andylibrary.common.ToastUtils;
 import com.andy.collect.andylibrary.net.NetworkStatusListener;
+import com.bugtags.library.Bugtags;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
 
@@ -32,8 +33,8 @@ public class AndyApp extends Application {
         }
         andyApp = this;
         initNetworkStatusReceiver();
-        // 初始化NoHttp
-        NoHttp.initialize(this);
+        NoHttp.initialize(this);// 初始化NoHttp
+        Bugtags.start("14f06f1dd7dd320b1942436d7109babf", this, Bugtags.BTGInvocationEventBubble);//初始化Bugtags
         Logger.setDebug(BuildConfig.DEBUG);
         Logger.setTag("NoHttpSample");
     }

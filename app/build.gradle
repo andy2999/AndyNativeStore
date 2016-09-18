@@ -12,6 +12,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        ndk {// 设置支持的SO 库构架
+            abiFilters 'armeabi'// 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
     }
     buildTypes {
         debug {
@@ -70,10 +73,25 @@ android {
     }
 }
 
+//应用 Bugtags 插件
+apply plugin: 'com.bugtags.library.plugin'
+
+//Bugtags 插件配置
+bugtags {
+    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
+    appKey "14f06f1dd7dd320b1942436d7109babf"  //这里是你的 appKey
+    appSecret "79d1ce072d08cd55728420a201ecafad"    //这里是你的 appSecret，管理员在设置页可以查看
+    mappingUploadEnabled true
+
+    //网络跟踪功能配置(企业版)
+    trackingNetworkEnabled true
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar']) //本地依赖,编译时依赖 libs 文件夹下的所有 jar 文件
     compile project(':andylib') //依赖一个本项目中 名称为 andylib 的 model 库
     compile 'com.alibaba:fastjson:1.2.11'
+    compile 'com.bugtags.library:bugtags-lib:latest.integration'
 //    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}" //依赖一个远程的库
 //    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
 

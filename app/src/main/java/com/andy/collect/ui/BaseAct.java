@@ -14,14 +14,16 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.andy.collect.R;
 import com.andy.collect.andylibrary.common.ToastUtils;
-import com.andy.collect.andylibrary.widget.dialog.WebDialog;
 import com.andy.collect.andylibrary.net.HttpInterface;
 import com.andy.collect.andylibrary.net.nohttp.CallServer;
+import com.andy.collect.andylibrary.widget.dialog.WebDialog;
+import com.bugtags.library.Bugtags;
 import com.yolanda.nohttp.rest.Response;
 import com.yolanda.nohttp.rest.StringRequest;
 import com.yolanda.nohttp.tools.HeaderParser;
@@ -47,11 +49,13 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
     @Override
     protected void onResume() {
         super.onResume();
+        Bugtags.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        Bugtags.onPause(this);
     }
 
     @Override
@@ -206,5 +210,11 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Bugtags.onDispatchTouchEvent(this, ev);
+        return super.dispatchTouchEvent(ev);
     }
 }
