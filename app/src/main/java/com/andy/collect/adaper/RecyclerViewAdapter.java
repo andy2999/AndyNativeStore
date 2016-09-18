@@ -26,7 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Context mContext;
 
     private boolean isTitle(int pos) {
-        if (mData.get(pos).startsWith("this is title:")) {
+        if (mData.get(pos).startsWith("title:")) {
             return true;
         }
         return false;
