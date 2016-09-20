@@ -92,7 +92,7 @@ public class MainAct extends BaseAct implements NavigationView.OnNavigationItemS
                     startActivity(new Intent(MainAct.this, TRefreshAct_1.class));
                 } else if (selectStr.equals("RecyclerView分组")) {//RecyclerView分组功能
                     startActivity(new Intent(MainAct.this, RecyclerViewAct.class));
-                } else if (selectStr.equals("sub_menu_3")) {
+                } else if (selectStr.equals("React native")) {
 
                 } else if (selectStr.equals("sub_menu_4")) {
 

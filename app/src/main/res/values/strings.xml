@@ -8,7 +8,7 @@
 
     <string name="sub_menu_1" translatable="false">NoHttp演示</string>
     <string name="sub_menu_2" translatable="false">RecyclerView分组</string>
-    <string name="sub_menu_3" translatable="false">sub_menu_3</string>
+    <string name="sub_menu_3" translatable="false">React native</string>
     <string name="sub_menu_4" translatable="false">sub_menu_4</string>
 
     <string-array name="array_sub_menu" translatable="false">

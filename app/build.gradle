@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         ndk {// 设置支持的SO 库构架
-            abiFilters 'armeabi'// 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+            abiFilters 'armeabi', 'armeabi-v7a'//, 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
         }
     }
     buildTypes {
@@ -73,6 +73,11 @@ android {
     }
 }
 
+//解决RN集成后运行项目报错问题：Error:Conflict with dependency 'com.google.code.findbugs:jsr305'. Resolved versions for app (3.0.0) and test app (2.0.1) differ
+configurations.all {
+    resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+}
+
 //应用 Bugtags 插件
 apply plugin: 'com.bugtags.library.plugin'
 
@@ -92,6 +97,9 @@ dependencies {
     compile project(':andylib') //依赖一个本项目中 名称为 andylib 的 model 库
     compile 'com.alibaba:fastjson:1.2.11'
     compile 'com.bugtags.library:bugtags-lib:latest.integration'
+    //compile "com.facebook.react:react-native:0.17.+"
+    compile 'com.facebook.react:react-native:+'
+
 //    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}" //依赖一个远程的库
 //    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
 
