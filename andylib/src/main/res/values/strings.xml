@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndyLibrary</string>
+    <string name="app_name">andylib</string>
 
     <string name="wait_dialog_title">Please wait for a while…</string>
 

@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.andy.collect.R;
+import com.andy.collect.ui.rn.RnActivity;
 
 public class MainAct extends BaseAct implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -93,7 +94,7 @@ public class MainAct extends BaseAct implements NavigationView.OnNavigationItemS
                 } else if (selectStr.equals("RecyclerView分组")) {//RecyclerView分组功能
                     startActivity(new Intent(MainAct.this, RecyclerViewAct.class));
                 } else if (selectStr.equals("React native")) {
-
+                    startActivity(new Intent(MainAct.this, RnActivity.class));
                 } else if (selectStr.equals("sub_menu_4")) {
 
                 }

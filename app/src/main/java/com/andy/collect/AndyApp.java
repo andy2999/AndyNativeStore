@@ -9,18 +9,24 @@ import android.content.IntentFilter;
 import com.andy.collect.andylibrary.common.CommonUtils;
 import com.andy.collect.andylibrary.common.ToastUtils;
 import com.andy.collect.andylibrary.net.NetworkStatusListener;
-import com.bugtags.library.Bugtags;
+import com.andy.collect.ui.rn.MyReactPackage;
+import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactNativeHost;
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * desc:
  * andy he
  * 2016/6/27 10:01
  */
-public class AndyApp extends Application {
+public class AndyApp extends Application implements ReactApplication {
     private BroadcastReceiver networkReceiver;
     private static AndyApp andyApp;
     private ArrayList<NetworkStatusListener> networkStatusListenerList;
@@ -34,7 +40,7 @@ public class AndyApp extends Application {
         andyApp = this;
         initNetworkStatusReceiver();
         NoHttp.initialize(this);// 初始化NoHttp
-        Bugtags.start("14f06f1dd7dd320b1942436d7109babf", this, Bugtags.BTGInvocationEventBubble);//初始化Bugtags
+        //Bugtags.start("14f06f1dd7dd320b1942436d7109babf", this, Bugtags.BTGInvocationEventBubble);//初始化Bugtags
         Logger.setDebug(BuildConfig.DEBUG);
         Logger.setTag("NoHttpSample");
     }
@@ -83,4 +89,23 @@ public class AndyApp extends Application {
     public synchronized void removeNetworkStatusListener(NetworkStatusListener networkStatusListener) {
         networkStatusListenerList.remove(networkStatusListener);
     }
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
+    }
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(new MainReactPackage(),new MyReactPackage()
+            );
+        }
+    };
 }

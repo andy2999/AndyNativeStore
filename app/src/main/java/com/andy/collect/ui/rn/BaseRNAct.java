@@ -1,34 +1,11 @@
-package com.andy.collect.ui;
+package com.andy.collect.ui.rn;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
-import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
+import com.facebook.react.ReactActivity;
 
-import com.andy.collect.R;
-import com.andy.collect.andylibrary.common.ToastUtils;
-import com.andy.collect.andylibrary.net.HttpInterface;
-import com.andy.collect.andylibrary.net.nohttp.CallServer;
-import com.andy.collect.andylibrary.widget.dialog.WebDialog;
-import com.yolanda.nohttp.rest.Response;
-import com.yolanda.nohttp.rest.StringRequest;
-import com.yolanda.nohttp.tools.HeaderParser;
+import javax.annotation.Nullable;
 
-public abstract class BaseAct extends AppCompatActivity implements HttpInterface, View.OnClickListener {
-    protected View title, more;
+public abstract class BaseRNAct extends ReactActivity /*implements HttpInterface, View.OnClickListener*/ {
+   /* protected View title, more;
     protected Toolbar mToolbar;
     public static final String MSG_USER_EXIT_ACTION = "MSG_USER_EXIT_ACTION";//退出程序
 
@@ -64,11 +41,17 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
         super.onDestroy();
     }
 
+    @Override
+    public void setActionBar(android.widget.Toolbar toolbar) {
+        super.setActionBar(toolbar);
+    }
+
     protected void initToolbar() {
         mToolbar = bindView(R.id.tb);
         if (mToolbar == null)
             return;
-        setSupportActionBar(mToolbar);
+        //setSupportActionBar(mToolbar);
+        setActionBar(mToolbar);
         title = bindView(R.id.tb_title);
         more = bindView(R.id.tb_more);
     }
@@ -110,31 +93,31 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
         ((TextView) title).setText(titleStr);
     }
 
-    /**
+    *//**
      * 加载布局文件
-     */
+     *//*
     protected abstract int loadLayoutId();
 
-    /**
+    *//**
      * 初始化控件
-     */
+     *//*
     protected abstract void initViews();
 
-    /**
+    *//**
      * 初始化数剧
-     */
+     *//*
     protected abstract void initData();
 
-    /**
+    *//**
      * 设置监听
-     */
+     *//*
     protected void bindListener() {
 
     }
 
-    /**
+    *//**
      * 网络请求
-     */
+     *//*
     protected void networkProcess() {
 
     }
@@ -216,4 +199,8 @@ public abstract class BaseAct extends AppCompatActivity implements HttpInterface
         //Bugtags.onDispatchTouchEvent(this, ev);
         return super.dispatchTouchEvent(ev);
     }
+*/
+    @Nullable
+    @Override
+    protected abstract String getMainComponentName() ;
 }
