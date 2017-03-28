@@ -15,7 +15,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-       /* ndk {// 设置支持的SO 库构架
+        /* ndk {// 设置支持的SO 库构架
             abiFilters 'armeabi', 'armeabi-v7a'//, 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
         }*/
     }
@@ -105,6 +105,7 @@ android {
             }
         }
     }
+    buildToolsVersion '25.0.2'
 }
 
 //解决RN集成后运行项目报错问题：Error:Conflict with dependency 'com.google.code.findbugs:jsr305'. Resolved versions for app (3.0.0) and test app (2.0.1) differ
@@ -131,7 +132,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
 //    compile 'com.alibaba:fastjson:1.2.11'
 //    compile 'com.bugtags.library:bugtags-lib:latest.integration'
-    compile 'com.facebook.react:react-native:+'
 
 //    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}" //依赖一个远程的库
 //    compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
@@ -139,7 +139,9 @@ dependencies {
 //    testCompile "junit:junit:${rootProject.ext.junitVersion}"
 //    androidTestCompile "com.android.support:support-annotations:${rootProject.ext.supportLibVersion}"
 //    androidTestCompile "com.android.support.test:runner:${rootProject.ext.testRunnerVersion}"
-//    androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
+    //    androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
+    compile 'com.facebook.react:react-native:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha5'
 }
 
 task copyDownloadableDepsToLibs(type: Copy) {

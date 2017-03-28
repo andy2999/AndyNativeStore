@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
  * andy he
  * 2016-09-21 16:04
  */
-public class RnActivity extends BaseRNAct {
+public class RnActivity2 extends BaseRNAct {
 
     @Nullable
     @Override

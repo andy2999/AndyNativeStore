@@ -4,6 +4,7 @@
     package="com.andy.collect">
 
     <uses-sdk tools:overrideLibrary="com.facebook.react" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -25,11 +26,12 @@
         </activity>
         <activity android:name=".ui.TRefreshAct_1" />
         <activity android:name=".ui.RecyclerViewAct" />
-        <activity android:name=".ui.rn.RnActivity"/>
+        <activity android:name=".ui.rn.RnActivity1" />
+        <activity android:name=".ui.rn.RnActivity2" />
+        <activity android:name=".ui.SecurityCodeActivity" />
 
-        <!--用于RN 支持晃动手机或点击菜单键打开react-native的调试页面-->
+        <!-- 用于RN 支持晃动手机或点击菜单键打开react-native的调试页面 -->
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
     </application>
 
 </manifest>

@@ -18,7 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.andy.collect.R;
-import com.andy.collect.ui.rn.RnActivity;
+import com.andy.collect.ui.rn.RnActivity1;
+import com.andy.collect.ui.rn.RnActivity2;
 
 public class MainAct extends BaseAct implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -36,9 +37,9 @@ public class MainAct extends BaseAct implements NavigationView.OnNavigationItemS
 
     @Override
     protected void initViews() {
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        fab = bindView(R.id.fab);
+        drawer = bindView(R.id.drawer_layout);
+        navigationView = bindView(R.id.nav_view);
 
     }
 
@@ -93,10 +94,12 @@ public class MainAct extends BaseAct implements NavigationView.OnNavigationItemS
                     startActivity(new Intent(MainAct.this, TRefreshAct_1.class));
                 } else if (selectStr.equals("RecyclerView分组")) {//RecyclerView分组功能
                     startActivity(new Intent(MainAct.this, RecyclerViewAct.class));
-                } else if (selectStr.equals("React native")) {
-                    startActivity(new Intent(MainAct.this, RnActivity.class));
-                } else if (selectStr.equals("sub_menu_4")) {
-
+                } else if (selectStr.equals("RN1")) {
+                    startActivity(new Intent(MainAct.this, RnActivity1.class));
+                } else if (selectStr.equals("RN2")) {
+                    startActivity(new Intent(MainAct.this, RnActivity2.class));
+                } else if (selectStr.equals("SecurityCode")) {
+                    startActivity(new Intent(MainAct.this, SecurityCodeActivity.class));
                 }
             }
 
